@@ -35,5 +35,4 @@ spec:
       volumes:
         - name: mydata
           persistentVolumeClaim:
-            claimName: mc-app-colume
-            
+            claimName: mc-app-volume
