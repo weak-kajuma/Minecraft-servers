@@ -28,12 +28,12 @@ spec:
     spec:
       containers:
         - name: mcserver-node
-          image: weakkajuma/minecraft-server:v1.17.1
-      dnsPolicy: "None"
-      dnsConfig:
-        nameservers:
-          - 8.8.8.8
-        options:
-          - name: ndots
-            value: "2"
-          - name: edns0
+          image: weakkajuma/minecraft-server:v1.17.1.3
+          volumeMounts:
+              - name: mydata
+                mountPath: "/root"
+      volumes:
+        - name: mydata
+          persistentVolumeClaim:
+            claimName: mc-app-colume
+            
