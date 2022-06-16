@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: itzg-mc-svc
+spec:
+  selector:
+    app: itzg-mc-proxy
+  ports:
+    - protocol: "TCP"
+      port: 25565
+      targetPort: 25577
+  type: LoadBalancer
+  loadBalancerIP: 10.0.0.152
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: itzg-mc-proxy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: itzg-mc-proxy
+  template:
+    metadata:
+      labels:
+        app: itzg-mc-proxy
+    spec:
+      containers:
+        - name: itzg-mc-node
+          image: itzg/bungeecord
+          volumeMounts:
+              - name: mydata
+                mountPath: "/server"
+      volumes:
+        - name: mydata
+          persistentVolumeClaim:
+            claimName: mc-proxy-volume
