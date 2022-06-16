@@ -36,6 +36,8 @@ spec:
             value: "1.17.1"
           - name: TYPE
             value: "SPIGOT"
+          - name: ONLINE_MODE
+            value: "FALSE"
           volumeMounts:
               - name: mydata
                 mountPath: "/data"
