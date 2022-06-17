@@ -28,7 +28,7 @@ spec:
     spec:
       containers:
         - name: itzg-mc-node
-          image: itzg/bungeecord
+          image: itzg/bungeecord:java17
           env:
             - name: TYPE
               value: "BUNGEECORD"
