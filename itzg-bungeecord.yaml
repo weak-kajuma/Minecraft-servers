@@ -33,7 +33,7 @@ spec:
             - name: TYPE
               value: "BUNGEECORD"
           volumeMounts:
-          - mountPath: /ver/run
+          - mountPath: /var/run
             name: config
       volumes:
       - name: config
