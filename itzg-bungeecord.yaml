@@ -32,10 +32,4 @@ spec:
           env:
             - name: TYPE
               value: "BUNGEECORD"
-          volumeMounts:
-              - name: mydata
-                mountPath: "/server"
-      volumes:
-        - name: mydata
-          persistentVolumeClaim:
-            claimName: mc-proxy-volume
+          
