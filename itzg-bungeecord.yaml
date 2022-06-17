@@ -29,6 +29,9 @@ spec:
       containers:
         - name: itzg-mc-node
           image: itzg/bungeecord
+          env:
+            - name: TYPE
+              value: "BUNGEECORD"
           volumeMounts:
               - name: mydata
                 mountPath: "/server"
