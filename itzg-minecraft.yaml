@@ -9,6 +9,7 @@ spec:
     - protocol: "TCP"
       port: 25565
       targetPort: 25565
+  type: LoadBalancer
 ---
 apiVersion: apps/v1
 kind: Deployment
