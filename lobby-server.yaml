@@ -1,0 +1,58 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: lobby-mc-svc
+spec:
+  selector:
+    app: lobby-mc-app
+  ports:
+    - protocol: "TCP"
+      port: 25565
+      targetPort: 25565
+  type: LoadBalancer
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lobby-mc-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lobby-mc-app
+  template:
+    metadata:
+      labels:
+        app: lobby-mc-app
+    spec:
+      containers:
+        - name: lobby-mc-node
+          image: itzg/minecraft-server
+          env:
+          - name: EULA
+            value: "TRUE"
+          - name: VERSION
+            value: "1.17.1"
+          - name: TYPE
+            value: "SPIGOT"
+          - name: ONLINE_MODE
+            value: "FALSE"
+          volumeMounts:
+              - name: mydata
+                mountPath: "/data"
+      volumes:
+        - name: mydata
+          persistentVolumeClaim:
+            claimName: lobby-mc-volume
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: cephfs-pvc-test
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 20Gi
+  storageClassName: lobby-mc-volume
