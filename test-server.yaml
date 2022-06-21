@@ -48,7 +48,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: cephfs-pvc-test
+  name: main-mc-volume
 spec:
   accessModes:
     - ReadWriteMany
