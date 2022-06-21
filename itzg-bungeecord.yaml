@@ -10,7 +10,7 @@ spec:
       port: 25565
       targetPort: 25577
   type: LoadBalancer
-  loadBalancerIP: 10.0.0.151
+  loadBalancerIP: 10.0.0.165
 ---
 apiVersion: apps/v1
 kind: Deployment
