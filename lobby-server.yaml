@@ -55,4 +55,4 @@ spec:
   resources:
     requests:
       storage: 20Gi
-  storageClassName: lobby-mc-volume
+  storageClassName: rook-cephfs

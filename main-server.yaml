@@ -55,4 +55,4 @@ spec:
   resources:
     requests:
       storage: 20Gi
-  storageClassName: main-mc-volume
+  storageClassName: rook-cephfs
