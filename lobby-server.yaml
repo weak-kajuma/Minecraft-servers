@@ -48,7 +48,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: main-mc-volume
+  name: lobby-mc-volume
 spec:
   accessModes:
     - ReadWriteMany
