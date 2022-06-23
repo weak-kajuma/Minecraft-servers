@@ -24,7 +24,15 @@ data:
     servers:
       lobby:
         motd: '&1Just another BungeeCord - Forced Host'
-        address: itzg-mc-svc:25565
+        address: lobby-mc-svc:25565
+        restricted: false
+      main:
+        motd: '&1Just another BungeeCord - Forced Host'
+        address: main-mc-svc:25565
+        restricted: false
+      test:
+        motd: '&1Just another BungeeCord - Forced Host'
+        address: test-mc-svc:25565
         restricted: false
     listeners:
     - query_port: 25577
